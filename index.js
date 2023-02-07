@@ -125,6 +125,7 @@
 
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const got = require("got");
 require("dotenv").config();
 
@@ -139,6 +140,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(morgan("tiny"));
+app.use(cors());
 // app.use("/api", router);
 
 app.get("/api/weather", async (req, res) => {
